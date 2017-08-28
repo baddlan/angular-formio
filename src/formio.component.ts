@@ -44,6 +44,7 @@ export class FormioComponent implements OnInit, OnChanges {
   @Input() submission: any = {};
   @Input() src: string;
   @Input() url: string;
+  @Input() language: string = 'en';
   @Input() service: FormioService;
   @Input() options: FormioOptions;
   @Input() readOnly: boolean = false;
@@ -112,6 +113,7 @@ export class FormioComponent implements OnInit, OnChanges {
       })
       .then((formio: any) => {
         this.formio = formio;
+        this.formio.language = this.language;
         if (this.url) {
           this.formio.url = this.url;
         }
